@@ -54,7 +54,7 @@ open class JourneySolutionRoadmapScreen: StylizedComponent<JourneySolutionRoadma
                             component.destinationSection = self.state.journey?.sections?[sectionIndex + 1]
                         } else if section.type == "street_network" {
                             var network: String = ""
-                            if section.from?.poi != nil {
+                            if section.from?.poi != nil && section.from?.poi?.properties?["network"] != nil {
                                 network = (section.from?.poi?.properties!["network"])!
                                 component.departureTime = self.state.journey!.sections![index - 1].departureDateTime!
                                 component.arrivalTime = self.state.journey!.sections![index + 1].arrivalDateTime!
